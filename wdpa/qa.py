@@ -1788,7 +1788,7 @@ def nan_present(wdpa_df, check_field, return_pid=False):
 #### 7.1. NaN present - NAME ####
 #################################
 
-def nan_present_name(wdpa_df, return_pid=False):
+def ivd_nan_present_name(wdpa_df, return_pid=False):
     '''
     Capture NaN / NA in the field 'NAME'
 
@@ -1804,7 +1804,7 @@ def nan_present_name(wdpa_df, return_pid=False):
 #### 7.2. NaN present - ORIG_NAME ####
 ######################################
 
-def nan_present_orig_name(wdpa_df, return_pid=False):
+def ivd_nan_present_orig_name(wdpa_df, return_pid=False):
     '''
     Capture NaN / NA in the field 'ORIG_NAME'
 
@@ -1820,7 +1820,7 @@ def nan_present_orig_name(wdpa_df, return_pid=False):
 #### 7.3. NaN present - DESIG ####
 ##################################
 
-def nan_present_desig(wdpa_df, return_pid=False):
+def ivd_nan_present_desig(wdpa_df, return_pid=False):
     '''
     Capture NaN / NA in the field 'DESIG'
 
@@ -1836,7 +1836,7 @@ def nan_present_desig(wdpa_df, return_pid=False):
 #### 7.4. NaN present - DESIG_ENG ####
 ######################################
 
-def nan_present_desig_eng(wdpa_df, return_pid=False):
+def ivd_nan_present_desig_eng(wdpa_df, return_pid=False):
     '''
     Capture NaN / NA in the field 'DESIG_ENG'
 
@@ -1852,7 +1852,7 @@ def nan_present_desig_eng(wdpa_df, return_pid=False):
 #### 7.5. NaN present - MANG_AUTH ####
 ######################################
 
-def nan_present_mang_auth(wdpa_df, return_pid=False):
+def ivd_nan_present_mang_auth(wdpa_df, return_pid=False):
     '''
     Capture NaN / NA in the field 'MANG_AUTH'
 
@@ -1868,7 +1868,7 @@ def nan_present_mang_auth(wdpa_df, return_pid=False):
 #### 7.6. NaN present - MANG_PLAN ####
 ######################################
 
-def nan_present_mang_plan(wdpa_df, return_pid=False):
+def ivd_nan_present_mang_plan(wdpa_df, return_pid=False):
     '''
     Capture NaN / NA in the field 'MANG_PLAN'
 
@@ -1884,7 +1884,7 @@ def nan_present_mang_plan(wdpa_df, return_pid=False):
 #### 7.7. NaN present - SUB_LOC ####
 ####################################
 
-def nan_present_sub_loc(wdpa_df, return_pid=False):
+def ivd_nan_present_sub_loc(wdpa_df, return_pid=False):
     '''
     Capture NaN / NA in the field 'SUB_LOC'
 
@@ -1896,7 +1896,21 @@ def nan_present_sub_loc(wdpa_df, return_pid=False):
 
     return nan_present(wdpa_df, check_field, return_pid)
 
+#######################################
+#### 7.8. NaN present - METADATAID ####
+#######################################
 
+def ivd_nan_present_metadataid(wdpa_df, return_pid=False):
+    '''
+    Capture NaN / NA in the field 'METADATAID'
+
+    Input: WDPA in pandas DataFrame
+    Output: list with WDPA_PIDs containing NaN / NA in field 'METADATAID'
+    '''
+
+    check_field = 'METADATAID'
+
+    return nan_present(wdpa_df, check_field, return_pid)
 
 #################################################################
 #### 8. METADATAID: WDPA and Source Table (on the Wish List) ####
@@ -2028,13 +2042,14 @@ core_checks = [
 {'name': 'ivd_character_mang_auth', 'func': forbidden_character_mang_auth},
 {'name': 'ivd_character_mang_plan', 'func': forbidden_character_mang_plan},
 {'name': 'ivd_character_sub_loc', 'func': forbidden_character_sub_loc},
-{'name': 'nan_present_name', 'func': nan_present_name},
-{'name': 'nan_present_orig_name', 'func': nan_present_orig_name},
-{'name': 'nan_present_desig', 'func': nan_present_desig},
-{'name': 'nan_present_desig_eng', 'func': nan_present_desig_eng},
-{'name': 'nan_present_mang_auth', 'func': nan_present_mang_auth},
-{'name': 'nan_present_mang_plan', 'func': nan_present_mang_plan},
-{'name': 'nan_present_sub_loc', 'func': nan_present_sub_loc},]
+{'name': 'ivd_nan_present_name', 'func': ivd_nan_present_name},
+{'name': 'ivd_nan_present_orig_name', 'func': ivd_nan_present_orig_name},
+{'name': 'ivd_nan_present_desig', 'func': ivd_nan_present_desig},
+{'name': 'ivd_nan_present_desig_eng', 'func': ivd_nan_present_desig_eng},
+{'name': 'ivd_nan_present_mang_auth', 'func': ivd_nan_present_mang_auth},
+{'name': 'ivd_nan_present_mang_plan', 'func': ivd_nan_present_mang_plan},
+{'name': 'ivd_nan_present_sub_loc', 'func': ivd_nan_present_sub_loc},
+{'name': 'ivd_nan_present_metadataid', 'func': ivd_nan_present_metadataid}]
 
 # Checks to be run for polygon data only (includes GIS_AREA and/or GIS_M_AREA)
 area_checks = [
